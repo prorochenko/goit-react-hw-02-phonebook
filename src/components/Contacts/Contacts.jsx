@@ -9,7 +9,7 @@ const Contacts = ({ list }) => {
   );
 };
 
-InputNumber.propTypes = {
+Contacts.propTypes = {
   list: PropTypes.array,
 };
 export default Contacts;
