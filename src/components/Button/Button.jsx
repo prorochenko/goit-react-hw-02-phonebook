@@ -4,7 +4,7 @@ import css from './Button.module.css';
 const Button = ({ title }) => {
   return (
     <div className={css.container}>
-      <button type="button" className={css.btn}>
+      <button type="submit" className={css.btn}>
         {title}
       </button>
     </div>
