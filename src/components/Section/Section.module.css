@@ -1,4 +1,14 @@
 .box {
-  outline: 1px solid tomato;
-  width: 800px;
+  outline: 1px solid #f9a826;
+  width: 500px;
+  padding: 44px 28px;
+  border-radius: 20px;
+  width: 375px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.25;
 }

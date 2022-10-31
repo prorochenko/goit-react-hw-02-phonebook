@@ -3,9 +3,11 @@ import css from './Button.module.css';
 
 const Button = ({ title }) => {
   return (
-    <button type="button" className={css.btn}>
-      {title}
-    </button>
+    <div className={css.container}>
+      <button type="button" className={css.btn}>
+        {title}
+      </button>
+    </div>
   );
 };
 

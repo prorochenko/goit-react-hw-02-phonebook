@@ -1,5 +1,18 @@
 .btn {
-  border-radius: 25px;
-  background-color: tomato;
+  border-radius: 50px;
+  color: #ffffff;
+  background-color: #f9a826;
   cursor: pointer;
+  font-family: 'Quicksand';
+  border: 0;
+  width: 319px;
+  height: 50px;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+  padding: 25px 0;
 }

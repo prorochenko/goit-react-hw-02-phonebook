@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { InputName, InputNumber } from './Input/input';
 import Title from './Title/Title';
 import Button from './Button/Button';
 import Contacts from './Contacts/Contacts';
 import Section from './Section/Section';
 import Filter from './Filter/Filter';
+import css from './CommonStyle.module.css';
 
-export default class App extends React.Component {
+export default class App extends Component {
   state = {
     contacts: [],
     filter: '',
@@ -15,8 +16,9 @@ export default class App extends React.Component {
   };
 
   render() {
+    const { contacts } = this.state;
     return (
-      <div>
+      <div className={css.container}>
         <Section title="Phonebook">
           <Title title="Name">
             <InputName />
@@ -30,7 +32,7 @@ export default class App extends React.Component {
         </Section>
         <Section title="Contacts">
           <Filter />
-          <Contacts />
+          <Contacts list={contacts} />
         </Section>
       </div>
     );
