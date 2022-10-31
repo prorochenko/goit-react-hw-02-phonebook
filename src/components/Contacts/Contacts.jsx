@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
 
-const Contacts = () => {
+const Contacts = ({ list }) => {
   return (
     <ul>
-      <li>1</li>
+      <li className={css.list}>{list}</li>
     </ul>
   );
 };
 
+InputNumber.propTypes = {
+  list: PropTypes.array,
+};
 export default Contacts;
