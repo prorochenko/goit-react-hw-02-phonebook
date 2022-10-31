@@ -11,21 +11,20 @@ export default class Form extends Component {
 
   handleInputChane = event => {
     const { name, value } = event.currentTarget;
-    console.log(value);
     this.setState({
       [name]: value,
     });
   };
 
-  deleteContact = contact => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contact),
-    }));
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {

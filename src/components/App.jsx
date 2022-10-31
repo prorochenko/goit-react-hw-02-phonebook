@@ -16,12 +16,21 @@ export default class App extends Component {
     filter: '',
   };
 
+  deleteContact = () => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contact),
+    }));
+  };
+  formSubmitHandler = data => {
+    console.log(data);
+  };
+
   render() {
     const { contacts } = this.state;
     return (
       <div className={css.container}>
         <Section title="Phonebook">
-          <Form />
+          <Form onSubmit={this.formSubmitHandler} />
         </Section>
         <Section title="Contacts">
           <Filter />
