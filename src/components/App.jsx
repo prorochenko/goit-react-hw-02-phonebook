@@ -1,16 +1,24 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import React from 'react';
+import { InputName, InputNumber } from './Input/input';
+import Section from './Section/Section';
+
+export default class App extends React.Component {
+  state = {
+    contacts: [],
+    name: '',
+    number: '',
+  };
+
+  render() {
+    return (
+      <div>
+        <Section title="Name">
+          <InputName />
+        </Section>
+        <Section title="Number">
+          <InputNumber />
+        </Section>
+      </div>
+    );
+  }
+}
