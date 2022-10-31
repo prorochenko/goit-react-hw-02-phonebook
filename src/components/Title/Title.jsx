@@ -3,10 +3,10 @@ import css from './Title.module.css';
 
 const Title = ({ title, children }) => {
   return (
-    <div>
+    <label>
       <h2 className={css.title}>{title}</h2>
       {children}
-    </div>
+    </label>
   );
 };
 
