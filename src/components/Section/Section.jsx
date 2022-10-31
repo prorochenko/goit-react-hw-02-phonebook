@@ -4,15 +4,14 @@ import css from './Section.module.css';
 const Section = ({ title, children }) => {
   return (
     <section>
-      <h1 className={css.title}>{title}</h1>
-      {children}
+      <h1>{title}</h1>
+      <div className={css.box}>{children}</div>
     </section>
   );
 };
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.element,
+  options: PropTypes.array,
 };
 
 export default Section;

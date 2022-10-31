@@ -1,4 +1,4 @@
-.title {
-  size: 25px;
-  color: tomato;
+.box {
+  outline: 1px solid tomato;
+  width: 800px;
 }
