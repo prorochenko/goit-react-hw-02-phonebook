@@ -5,6 +5,7 @@ import Filter from './Filter/Filter';
 import css from './CommonStyle.module.css';
 import Form from './Form/Form';
 import { nanoid } from 'nanoid';
+import Notiflix from 'notiflix';
 
 export default class App extends Component {
   state = {
@@ -24,13 +25,17 @@ export default class App extends Component {
   };
 
   formSubmitHandler = ({ name, number }) => {
-    console.log(name);
-
     const contact = {
       id: nanoid(),
       name,
       number,
     };
+
+    if (this.state.contacts.some(contact => contact.name === name)) {
+      Notiflix.Notify.failure(`${name} is already in contacts`);
+      return;
+    }
+
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));

@@ -6,11 +6,10 @@ const Contacts = ({ list, onDeleteContact }) => {
   return (
     <ul className={css.list}>
       {list.length === 0 ? (
-        <li className={css.list__item}>
-          <div className={css.list__box}>
-            no <button className={css.list__btn}>Delete</button>
-          </div>
-        </li>
+        <div className={css.list__box}>
+          <p className={css.list__text}>Phonebook is empty.</p>
+          <button className={css.list__btn}>Delete</button>
+        </div>
       ) : (
         list.map(({ id, name, number }) => (
           <li key={id} className={css.list__item}>
