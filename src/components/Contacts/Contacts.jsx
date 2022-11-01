@@ -8,7 +8,6 @@ const Contacts = ({ list, onDeleteContact }) => {
       {list.length === 0 ? (
         <div className={css.list__box}>
           <p className={css.list__text}>Phonebook is empty.</p>
-          <button className={css.list__btn}>Delete</button>
         </div>
       ) : (
         list.map(({ id, name, number }) => (
