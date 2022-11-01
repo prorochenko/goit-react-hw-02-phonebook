@@ -52,8 +52,10 @@ export default class App extends Component {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
+
   render() {
     const filteredContacts = this.getVisibleContacts();
+
     return (
       <div className={css.container}>
         <Section title="Phonebook">
