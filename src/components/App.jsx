@@ -41,16 +41,28 @@ export default class App extends Component {
     }));
   };
 
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
   render() {
+    const filteredContacts = this.getVisibleContacts();
     return (
       <div className={css.container}>
         <Section title="Phonebook">
           <Form onSubmit={this.formSubmitHandler} />
         </Section>
         <Section title="Contacts">
-          <Filter />
+          <Filter filter={this.state.filter} onChange={this.changeFilter} />
           <Contacts
-            list={this.state.contacts}
+            list={filteredContacts}
             onDeleteContact={this.deleteContact}
           />
         </Section>
