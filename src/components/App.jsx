@@ -4,6 +4,7 @@ import Section from './Section/Section';
 import Filter from './Filter/Filter';
 import css from './CommonStyle.module.css';
 import Form from './Form/Form';
+import { nanoid } from 'nanoid';
 
 export default class App extends Component {
   state = {
@@ -16,17 +17,26 @@ export default class App extends Component {
     filter: '',
   };
 
-  deleteContact = () => {
+  deleteContact = contactId => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contact),
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
-  formSubmitHandler = data => {
-    console.log(data);
+
+  formSubmitHandler = ({ name, number }) => {
+    console.log(name);
+
+    const contact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+    this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
   };
 
   render() {
-    const { contacts } = this.state;
     return (
       <div className={css.container}>
         <Section title="Phonebook">
@@ -34,7 +44,10 @@ export default class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter />
-          <Contacts list={contacts} onDeleteContact={this.deleteContact} />
+          <Contacts
+            list={this.state.contacts}
+            onDeleteContact={this.deleteContact}
+          />
         </Section>
       </div>
     );
